@@ -4,10 +4,8 @@ let mainCont = document.querySelector(".main-cont")
 let addModal=true;
 let removeBtn=document.querySelector(".delete-btn");
 let removeFlag=false;
-let sizeCont=document.querySelector(".size");
 var uid = new ShortUniqueId();
-let ticketArr=[];
-let rightSide=document.querySelector(".right-side-text");
+let propertyArr=[];
 let nameo = document.querySelector("#name");
 let desc = document.querySelector("#desc");
 let size = document.querySelector("#size");
@@ -53,6 +51,13 @@ function createTicket(name,description,size)
                         <span class="name">${name}</span>
                         <span class="desc">${description}</span>
                         <span class="size">${size}</span>`
+    infoCont.addEventListener("click",function()
+    {
+        if(removeFlag)
+        {
+            infoCont.remove();
+        }
+    })
     mainCont.appendChild(infoCont);
 }
 

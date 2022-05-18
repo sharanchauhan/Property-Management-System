@@ -57,6 +57,7 @@ span
 {
     padding: 1.7rem;
     font-size: 1.5rem;
+    overflow-wrap: break-word;
 }
 
 .textarea-cont
@@ -98,6 +99,7 @@ span
 .id
 {
     width: 10%;
+    overflow-wrap: unset;
 }
 
 .name
