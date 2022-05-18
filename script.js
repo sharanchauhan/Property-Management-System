@@ -11,6 +11,18 @@ let desc = document.querySelector("#desc");
 let size = document.querySelector("#size");
 let enter = document.querySelector("#enter");
 
+if(localStorage.getItem("properties"))
+{
+    let str=localStorage.getItem("properties");
+    let arr=JSON.parse(str);
+    propertyArr=arr;
+    for(let i=0;i<propertyArr.length;i++)
+    {
+        let obj=propertyArr[i];
+        createTicket(obj.Name,obj.Description,obj.size,obj.id);
+    }
+}
+
 enter.addEventListener("click",function()
 {
     if(nameo.value=="" || desc.value=="" || size.value=="")
@@ -42,23 +54,40 @@ addbtn.addEventListener("click",function()
     addModal=!addModal;
 })
 
-function createTicket(name,description,size)
+function createTicket(name,description,size,oid)
 {
-    let id=uid();
+    let id;
+    if(oid==undefined)
+    {
+        id=uid();
+    }
+    else
+    {
+        id=oid;
+    }
     let infoCont=document.createElement("div");
     infoCont.setAttribute("class","information");
     infoCont.innerHTML=`<span class="id">#${id}</span>
                         <span class="name">${name}</span>
                         <span class="desc">${description}</span>
                         <span class="size">${size}</span>`
+    mainCont.appendChild(infoCont);
     infoCont.addEventListener("click",function()
     {
         if(removeFlag)
         {
             infoCont.remove();
+            let idx=getIndex(id);
+            propertyArr.splice(idx,1);
+            updateLocalStorage();
         }
     })
-    mainCont.appendChild(infoCont);
+    if(oid==undefined)
+    {
+        propertyArr.push({"id":id,"Name":name,"Description":description,"size":size});
+        updateLocalStorage();
+    }
+    
 }
 
 
@@ -78,9 +107,9 @@ removeBtn.addEventListener("click",function()
 // Function to get the index
 function getIndex(id) 
 {
-    for(let i=0;i<ticketArr.length;i++)
+    for(let i=0;i<propertyArr.length;i++)
     {
-        if(ticketArr[i].id==id)
+        if(propertyArr[i].id==id)
         {
             return i;
         }
@@ -90,6 +119,6 @@ function getIndex(id)
 // Function to update the local storage
 function updateLocalStorage()
 {
-    let stringify=JSON.stringify(ticketArr);
-    localStorage.setItem("tickets",stringify);
+    let stringify=JSON.stringify(propertyArr);
+    localStorage.setItem("properties",stringify);
 }
