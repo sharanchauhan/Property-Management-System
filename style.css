@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+}
+
+.toolbox-container
+{
+    background-color:#2F8F9D;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+}
+
+.toolbox-priority-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: beige;
+    border: 1px solid black;
+    height: 3rem;
+    width: 18rem;
+    margin-left: 5rem;
+}
+
+.action-btn-container
+{
+    border: 1px solid black;
+    height: 3rem;
+    background-color: beige;
+    width: 10rem;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.add-btn
+{
+    font-size: 1.5rem;
+}
+
+.delete-btn
+{
+    font-size: 1.5rem;
+}
