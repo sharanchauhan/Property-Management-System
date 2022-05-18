@@ -10,6 +10,8 @@ let nameo = document.querySelector("#name");
 let desc = document.querySelector("#desc");
 let size = document.querySelector("#size");
 let enter = document.querySelector("#enter");
+let sortAscendingBtn=document.querySelector(".sort-asc-btn");
+let sortDescendingBtn=document.querySelector(".sort-desc-btn");
 
 if(localStorage.getItem("properties"))
 {
@@ -103,6 +105,38 @@ removeBtn.addEventListener("click",function()
     }
     removeFlag=!removeFlag;
 })
+
+sortAscendingBtn.addEventListener("click",function()
+{
+    let ascendingArr=propertyArr;
+    ascendingArr.sort(function(a,b)
+    {
+        return a.size-b.size;
+    });
+    mainCont.innerHTML="";
+    // for(let i=0;i<infoCont.length;i++)
+    // {
+    //     infoCont[i].remove;
+    // }
+    for(let i=0;i<ascendingArr.length;i++)
+    {
+        createTicket(ascendingArr[i].Name,ascendingArr[i].Description,ascendingArr[i].size,ascendingArr[i].id);
+    }
+});
+
+sortDescendingBtn.addEventListener("click",function()
+{
+    let descendingArr=propertyArr;
+    descendingArr.sort(function(a,b)
+    {
+        return b.size-a.size;
+    });
+    mainCont.innerHTML="";
+    for(let i=descendingArr.length;i>=0;i--)
+    {
+        createTicket(descendingArr[i].Name,descendingArr[i].Description,descendingArr[i].size,descendingArr[i].id);
+    }
+});
 
 // Function to get the index
 function getIndex(id) 

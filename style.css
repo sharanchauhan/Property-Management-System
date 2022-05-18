@@ -41,6 +41,16 @@ body
     font-size: 1.5rem;
 }
 
+.sort-asc-btn
+{
+    font-size: 1.5rem;
+}
+
+.sort-desc-btn
+{
+    font-size: 1.5rem;
+}
+
 .modal-cont
 {
     background-color: beige;
@@ -92,8 +102,8 @@ span
     height: 3%;
     width: 100%;
     display: flex;
-    border: 1px solid black;
-
+    border-bottom: 1px solid black;
+    margin-top: 5rem;
 }
 
 .id
@@ -119,7 +129,7 @@ span
 
 .main-cont
 {
-    margin-top: 7rem;
+    /* margin-top: 7rem; */
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
