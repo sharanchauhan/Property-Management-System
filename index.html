@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Management System</title>
+    <title>Property-Management-System</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <div class="toolbox-container">
@@ -19,6 +20,30 @@
             </div>
         </div>
     </div>
+
+    <div class="main-cont">
+        <div class="differentiator">
+            <span class="id">ID</span>
+            <span class="name">Name</span>
+            <span class="desc">Description</span>
+            <span class="size">Size</span>
+        </div>
+    </div>
+
+    <div class="modal-cont">
+        <div class="left-side-text">
+            <span>Name:</span>
+            <span>Description:</span>
+            <span>Size:</span>
+        </div>
+        <div class="right-side-text">
+            <textarea id = "name" class="textarea-cont n" placeholder="Name of the Property"></textarea>
+            <textarea id = "desc" class="textarea-cont d" placeholder="Description of the Property"></textarea>
+            <textarea id = "size"class="textarea-cont s" placeholder="Size of the Property"></textarea>
+            <button id = "enter"> Submit Details</button>
+        </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/short-unique-id@latest/dist/short-unique-id.min.js"></script>
 <script src="./script.js"></script>
 </html>
