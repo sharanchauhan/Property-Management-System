@@ -12,6 +12,7 @@ let size = document.querySelector("#size");
 let enter = document.querySelector("#enter");
 let sortAscendingBtn=document.querySelector(".sort-asc-btn");
 let sortDescendingBtn=document.querySelector(".sort-desc-btn");
+let refreshBtn=document.querySelector(".refresh-btn");
 
 if(localStorage.getItem("properties"))
 {
@@ -41,6 +42,7 @@ enter.addEventListener("click",function()
         desc.value="";
         size.value="";
         addModal=!addModal;
+        window.location.reload();
     }
 })
 addbtn.addEventListener("click",function()
@@ -114,10 +116,6 @@ sortAscendingBtn.addEventListener("click",function()
         return a.size-b.size;
     });
     mainCont.innerHTML="";
-    // for(let i=0;i<infoCont.length;i++)
-    // {
-    //     infoCont[i].remove;
-    // }
     for(let i=0;i<ascendingArr.length;i++)
     {
         createTicket(ascendingArr[i].Name,ascendingArr[i].Description,ascendingArr[i].size,ascendingArr[i].id);
@@ -129,14 +127,19 @@ sortDescendingBtn.addEventListener("click",function()
     let descendingArr=propertyArr;
     descendingArr.sort(function(a,b)
     {
-        return b.size-a.size;
+        return a.size-b.size;
     });
     mainCont.innerHTML="";
-    for(let i=descendingArr.length;i>=0;i--)
+    for(let i=descendingArr.length-1;i>=0;i--)
     {
         createTicket(descendingArr[i].Name,descendingArr[i].Description,descendingArr[i].size,descendingArr[i].id);
     }
 });
+
+refreshBtn.addEventListener("click",function()
+{
+    window.location.reload();
+})
 
 // Function to get the index
 function getIndex(id) 

@@ -22,9 +22,9 @@ body
 .action-btn-container
 {
     border: 1px solid black;
-    height: 3rem;
+    height: 3.5rem;
     background-color: beige;
-    width: 10rem;
+    width: 12rem;
     margin-left: 5rem;
     display: flex;
     align-items: center;
@@ -47,6 +47,11 @@ body
 }
 
 .sort-desc-btn
+{
+    font-size: 1.5rem;
+}
+
+.refresh-btn
 {
     font-size: 1.5rem;
 }
